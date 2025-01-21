@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'data' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       <label for="dep_name">Department Name:</label>
+       <input type="text" name="dep_name" placeholder="Enter Department name">
+       <br>
+       <label for="dep_description">Department Description</label>
+       <input type="text" name="dep_description" placeholder="Enter Department Description">
+       <br>
+       <label for="dep_HOD">Description HOD:</label>
+       <input type="text" name="dep_HOD" placeholder="Enter Department HOD name">
+       <br>
+       <input type="submit" value="Submit">
+   </form>
+   
+   <script>
+       function showValue(val) {
+           document.getElementById('volumeValue').textContent = val;
+       }
+   </script>
+</body>
+</html>

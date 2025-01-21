@@ -18,3 +18,20 @@ class UserProfile(models.Model):
         return self.name
 
 # Create your models here.
+class Department(models.Model):
+    dep_name=models.CharField(max_length=50, unique=True)
+    def __str__(self):
+        return str(self.dep_name)
+    dep_description=models.CharField(max_length=50)
+    dep_Hod=models.CharField(max_length=50)
+
+class Student(models.Model):
+    stu_name=models.CharField(max_length=50)
+    stu_father_name=models.CharField(max_length=50)
+    stu_DateOfBirth=models.DateField()
+    stu_Email=models.EmailField()
+    stu_department=models.ForeignKey(Department,on_delete=models.PROTECT, to_field='dep_name')
+    stu_RollNumber=models.CharField(max_length=20, unique=True)  
+    def __str__(self):
+        return self.stu_name 
+    
