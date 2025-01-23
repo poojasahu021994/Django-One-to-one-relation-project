@@ -35,3 +35,18 @@ class Student(models.Model):
     def __str__(self):
         return self.stu_name 
     
+class Vehicle(models.Model):
+    vename=[('Tata','Tata'),('BMW','BMW'),('Audi','Audi'),('Hyundai','Hyundai'),('Hounda','Hounda')]
+    ve_name=models.CharField(max_length=50, choices=vename)
+    veriant_type=[('Tata','Altra'),('BMW','BMW X1'),('Audi','Audi Q5'),('Hyundai','verna'),('Hounda','Ameze')]
+    ve_veriants=models.CharField(max_length=50,unique=True, choices=veriant_type)
+    def __str__(self):
+        return self.ve_name 
+
+class Fuel(models.Model) :
+    fuel_type=[('Petrol','Petrol'),('Desal','Desal'),('CNG','CNG')]
+    f_name=models.CharField(max_length=50,choices=fuel_type)  
+    ve_name=models.ManyToManyField(Vehicle)
+    # ve_veriants=models.ManyToManyField(Vehicle)
+    def __str__(self):
+        return self.f_name

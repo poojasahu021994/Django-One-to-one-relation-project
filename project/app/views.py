@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Department
 def department(request):
     return render(request,'deparmtent_Form.html')
 
